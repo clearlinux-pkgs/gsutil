@@ -4,7 +4,7 @@
 #
 Name     : gsutil
 Version  : 4.27
-Release  : 4
+Release  : 7
 URL      : https://pypi.debian.net/gsutil/gsutil-4.27.tar.gz
 Source0  : https://pypi.debian.net/gsutil/gsutil-4.27.tar.gz
 Summary  : A command line tool for interacting with cloud storage services.
@@ -12,17 +12,29 @@ Group    : Development/Tools
 License  : Apache-2.0
 Requires: gsutil-bin
 Requires: gsutil-python
+Requires: SocksiPy-branch
 Requires: argcomplete
 Requires: boto
+Requires: crcmod
+Requires: gcs-oauth2-boto-plugin
+Requires: google-apitools
 Requires: httplib2
 Requires: oauth2client
 Requires: pyOpenSSL
+Requires: python-gflags
 Requires: python-mock
+Requires: retry_decorator
 Requires: six
+BuildRequires : SocksiPy-branch
+BuildRequires : crcmod
+BuildRequires : gcs-oauth2-boto-plugin
+BuildRequires : google-apitools
 BuildRequires : pbr
 BuildRequires : pip
 BuildRequires : python-dev
+BuildRequires : python-gflags
 BuildRequires : python3-dev
+BuildRequires : retry_decorator
 BuildRequires : setuptools
 
 %description
@@ -53,12 +65,12 @@ export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C
-export SOURCE_DATE_EPOCH=1502299903
+export SOURCE_DATE_EPOCH=1502303532
 python2 setup.py build -b py2
 python3 setup.py build -b py3
 
 %install
-export SOURCE_DATE_EPOCH=1502299903
+export SOURCE_DATE_EPOCH=1502303532
 rm -rf %{buildroot}
 python2 -tt setup.py build -b py2 install --root=%{buildroot} --force
 python3 -tt setup.py build -b py3 install --root=%{buildroot} --force

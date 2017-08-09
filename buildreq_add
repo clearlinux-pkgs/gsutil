@@ -1,2 +1,8 @@
 # This file contains additional build requirements that did not get
 # picked up automatically. One name per line, no whitespace.
+google-apitools
+crcmod
+python-gflags
+retry_decorator
+gcs-oauth2-boto-plugin
+SocksiPy-branch
