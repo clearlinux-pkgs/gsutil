@@ -4,13 +4,14 @@
 #
 Name     : gsutil
 Version  : 4.27
-Release  : 7
+Release  : 8
 URL      : https://pypi.debian.net/gsutil/gsutil-4.27.tar.gz
 Source0  : https://pypi.debian.net/gsutil/gsutil-4.27.tar.gz
 Summary  : A command line tool for interacting with cloud storage services.
 Group    : Development/Tools
 License  : Apache-2.0
 Requires: gsutil-bin
+Requires: gsutil-legacypython
 Requires: gsutil-python
 Requires: SocksiPy-branch
 Requires: argcomplete
@@ -49,9 +50,18 @@ Group: Binaries
 bin components for the gsutil package.
 
 
+%package legacypython
+Summary: legacypython components for the gsutil package.
+Group: Default
+
+%description legacypython
+legacypython components for the gsutil package.
+
+
 %package python
 Summary: python components for the gsutil package.
 Group: Default
+Requires: gsutil-legacypython
 
 %description python
 python components for the gsutil package.
@@ -65,12 +75,12 @@ export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C
-export SOURCE_DATE_EPOCH=1502303532
+export SOURCE_DATE_EPOCH=1505003205
 python2 setup.py build -b py2
 python3 setup.py build -b py3
 
 %install
-export SOURCE_DATE_EPOCH=1502303532
+export SOURCE_DATE_EPOCH=1505003205
 rm -rf %{buildroot}
 python2 -tt setup.py build -b py2 install --root=%{buildroot} --force
 python3 -tt setup.py build -b py3 install --root=%{buildroot} --force
@@ -85,7 +95,10 @@ echo ----[ mark ]----
 %defattr(-,root,root,-)
 /usr/bin/gsutil
 
-%files python
+%files legacypython
 %defattr(-,root,root,-)
 /usr/lib/python2*/*
+
+%files python
+%defattr(-,root,root,-)
 /usr/lib/python3*/*
