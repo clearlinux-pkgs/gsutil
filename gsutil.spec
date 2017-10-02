@@ -4,7 +4,7 @@
 #
 Name     : gsutil
 Version  : 4.27
-Release  : 8
+Release  : 9
 URL      : https://pypi.debian.net/gsutil/gsutil-4.27.tar.gz
 Source0  : https://pypi.debian.net/gsutil/gsutil-4.27.tar.gz
 Summary  : A command line tool for interacting with cloud storage services.
