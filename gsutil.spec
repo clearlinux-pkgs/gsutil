@@ -4,7 +4,7 @@
 #
 Name     : gsutil
 Version  : 4.27
-Release  : 9
+Release  : 10
 URL      : https://pypi.debian.net/gsutil/gsutil-4.27.tar.gz
 Source0  : https://pypi.debian.net/gsutil/gsutil-4.27.tar.gz
 Summary  : A command line tool for interacting with cloud storage services.
@@ -12,6 +12,7 @@ Group    : Development/Tools
 License  : Apache-2.0
 Requires: gsutil-bin
 Requires: gsutil-legacypython
+Requires: gsutil-python3
 Requires: gsutil-python
 Requires: SocksiPy-branch
 Requires: argcomplete
@@ -53,6 +54,7 @@ bin components for the gsutil package.
 %package legacypython
 Summary: legacypython components for the gsutil package.
 Group: Default
+Requires: python-core
 
 %description legacypython
 legacypython components for the gsutil package.
@@ -62,9 +64,19 @@ legacypython components for the gsutil package.
 Summary: python components for the gsutil package.
 Group: Default
 Requires: gsutil-legacypython
+Requires: gsutil-python3
 
 %description python
 python components for the gsutil package.
+
+
+%package python3
+Summary: python3 components for the gsutil package.
+Group: Default
+Requires: python3-core
+
+%description python3
+python3 components for the gsutil package.
 
 
 %prep
@@ -75,12 +87,12 @@ export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C
-export SOURCE_DATE_EPOCH=1505003205
+export SOURCE_DATE_EPOCH=1507154372
 python2 setup.py build -b py2
 python3 setup.py build -b py3
 
 %install
-export SOURCE_DATE_EPOCH=1505003205
+export SOURCE_DATE_EPOCH=1507154372
 rm -rf %{buildroot}
 python2 -tt setup.py build -b py2 install --root=%{buildroot} --force
 python3 -tt setup.py build -b py3 install --root=%{buildroot} --force
@@ -100,5 +112,8 @@ echo ----[ mark ]----
 /usr/lib/python2*/*
 
 %files python
+%defattr(-,root,root,-)
+
+%files python3
 %defattr(-,root,root,-)
 /usr/lib/python3*/*
