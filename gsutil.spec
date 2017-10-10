@@ -4,7 +4,7 @@
 #
 Name     : gsutil
 Version  : 4.27
-Release  : 10
+Release  : 11
 URL      : https://pypi.debian.net/gsutil/gsutil-4.27.tar.gz
 Source0  : https://pypi.debian.net/gsutil/gsutil-4.27.tar.gz
 Summary  : A command line tool for interacting with cloud storage services.
@@ -38,6 +38,7 @@ BuildRequires : python-gflags
 BuildRequires : python3-dev
 BuildRequires : retry_decorator
 BuildRequires : setuptools
+Patch1: update.patch
 
 %description
 gsutil is a Python application that lets you access Google Cloud Storage from
@@ -81,18 +82,19 @@ python3 components for the gsutil package.
 
 %prep
 %setup -q -n gsutil-4.27
+%patch1 -p1
 
 %build
 export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C
-export SOURCE_DATE_EPOCH=1507154372
+export SOURCE_DATE_EPOCH=1507651188
 python2 setup.py build -b py2
 python3 setup.py build -b py3
 
 %install
-export SOURCE_DATE_EPOCH=1507154372
+export SOURCE_DATE_EPOCH=1507651188
 rm -rf %{buildroot}
 python2 -tt setup.py build -b py2 install --root=%{buildroot} --force
 python3 -tt setup.py build -b py3 install --root=%{buildroot} --force
