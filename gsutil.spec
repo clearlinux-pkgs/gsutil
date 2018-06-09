@@ -4,7 +4,7 @@
 #
 Name     : gsutil
 Version  : 4.28
-Release  : 19
+Release  : 20
 URL      : https://pypi.debian.net/gsutil/gsutil-4.28.tar.gz
 Source0  : https://pypi.debian.net/gsutil/gsutil-4.28.tar.gz
 Summary  : A command line tool for interacting with cloud storage services.
@@ -23,7 +23,6 @@ Requires: httplib2
 Requires: oauth2client
 Requires: pyOpenSSL
 Requires: python-gflags
-Requires: python-mock
 Requires: retry_decorator
 Requires: six
 BuildRequires : SocksiPy-branch
@@ -78,7 +77,7 @@ export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C
-export SOURCE_DATE_EPOCH=1523289665
+export SOURCE_DATE_EPOCH=1528564569
 python3 setup.py build -b py3
 
 %install
