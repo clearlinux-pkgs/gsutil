@@ -31,7 +31,7 @@ BuildRequires : gcs-oauth2-boto-plugin
 BuildRequires : google-apitools
 BuildRequires : pbr
 BuildRequires : pip
-BuildRequires : python-dev
+
 BuildRequires : python-gflags
 BuildRequires : python3-dev
 BuildRequires : retry_decorator
