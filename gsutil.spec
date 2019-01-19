@@ -4,7 +4,7 @@
 #
 Name     : gsutil
 Version  : 4.35
-Release  : 31
+Release  : 32
 URL      : https://files.pythonhosted.org/packages/ff/5f/77df896ecdc6637d1befde659fa915416fa4f9be19129ffaaa80f00e2f24/gsutil-4.35.tar.gz
 Source0  : https://files.pythonhosted.org/packages/ff/5f/77df896ecdc6637d1befde659fa915416fa4f9be19129ffaaa80f00e2f24/gsutil-4.35.tar.gz
 Summary  : A command line tool for interacting with cloud storage services.
@@ -38,8 +38,11 @@ BuildRequires : python-gflags
 BuildRequires : retry_decorator
 
 %description
-gsutil is a Python application that lets you access Google Cloud Storage from
-        the command line. You can use gsutil to do a wide range of bucket and object
+This directory contains library code used by gsutil. Users are cautioned not
+to write programs that call the internal interfaces defined in here; these
+interfaces were defined only for use by gsutil, and are subject to change
+without notice. Moreover, Google supports this library only when used by
+gsutil, not when the library interfaces are called directly by other programs.
 
 %package bin
 Summary: bin components for the gsutil package.
@@ -84,7 +87,7 @@ export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C
-export SOURCE_DATE_EPOCH=1546097452
+export SOURCE_DATE_EPOCH=1547932196
 export MAKEFLAGS=%{?_smp_mflags}
 python3 setup.py build
 
@@ -113,4 +116,6 @@ echo ----[ mark ]----
 
 %files python3
 %defattr(-,root,root,-)
+%exclude /usr/lib/python3.7/site-packages/test/__init__.py
+%exclude /usr/lib/python3.7/site-packages/test/__pycache__/__init__.cpython-37.pyc
 /usr/lib/python3*/*
