@@ -4,7 +4,7 @@
 #
 Name     : gsutil
 Version  : 4.36
-Release  : 33
+Release  : 34
 URL      : https://files.pythonhosted.org/packages/a6/d9/3d8330b1a2ec04e1f73094e05131150825b581a5a2fa6d91f5f21741b4c0/gsutil-4.36.tar.gz
 Source0  : https://files.pythonhosted.org/packages/a6/d9/3d8330b1a2ec04e1f73094e05131150825b581a5a2fa6d91f5f21741b4c0/gsutil-4.36.tar.gz
 Summary  : A command line tool for interacting with cloud storage services.
@@ -14,7 +14,7 @@ Requires: gsutil-bin = %{version}-%{release}
 Requires: gsutil-license = %{version}-%{release}
 Requires: gsutil-python = %{version}-%{release}
 Requires: gsutil-python3 = %{version}-%{release}
-Requires: SocksiPy-branch
+Requires: PySocks
 Requires: argcomplete
 Requires: boto
 Requires: crcmod
@@ -29,7 +29,7 @@ Requires: pyOpenSSL
 Requires: python-gflags
 Requires: retry_decorator
 Requires: six
-BuildRequires : SocksiPy-branch
+BuildRequires : PySocks
 BuildRequires : buildreq-distutils3
 BuildRequires : crcmod
 BuildRequires : gcs-oauth2-boto-plugin
@@ -38,11 +38,8 @@ BuildRequires : python-gflags
 BuildRequires : retry_decorator
 
 %description
-This directory contains library code used by gsutil. Users are cautioned not
-to write programs that call the internal interfaces defined in here; these
-interfaces were defined only for use by gsutil, and are subject to change
-without notice. Moreover, Google supports this library only when used by
-gsutil, not when the library interfaces are called directly by other programs.
+gsutil is a Python application that lets you access Google Cloud Storage from
+        the command line. You can use gsutil to do a wide range of bucket and object
 
 %package bin
 Summary: bin components for the gsutil package.
@@ -87,11 +84,12 @@ export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C
-export SOURCE_DATE_EPOCH=1548730291
+export SOURCE_DATE_EPOCH=1549666884
 export MAKEFLAGS=%{?_smp_mflags}
 python3 setup.py build
 
 %install
+export MAKEFLAGS=%{?_smp_mflags}
 rm -rf %{buildroot}
 mkdir -p %{buildroot}/usr/share/package-licenses/gsutil
 cp LICENSE %{buildroot}/usr/share/package-licenses/gsutil/LICENSE
