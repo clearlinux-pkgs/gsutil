@@ -1,0 +1,52 @@
+From 5afe8adaa53e4784082faf556882d5fc862ffd55 Mon Sep 17 00:00:00 2001
+From: William Douglas <william.douglas@intel.com>
+Date: Fri, 8 Feb 2019 17:27:50 -0800
+Subject: [PATCH] Force use of PySocks
+
+---
+ gsutil.egg-info/requires.txt | 2 +-
+ gsutil.py                    | 2 +-
+ setup.py                     | 4 +---
+ 3 files changed, 3 insertions(+), 5 deletions(-)
+
+diff --git a/gsutil.egg-info/requires.txt b/gsutil.egg-info/requires.txt
+index 1129d60..53c27fe 100644
+--- a/gsutil.egg-info/requires.txt
++++ b/gsutil.egg-info/requires.txt
+@@ -13,4 +13,4 @@ pyOpenSSL>=0.13
+ python-gflags>=3.1.2
+ retry_decorator>=1.0.0
+ six>=1.12.0
+-SocksiPy-branch==1.01
++PySocks==1.0.0
+diff --git a/gsutil.py b/gsutil.py
+index 6a520ff..3361b93 100755
+--- a/gsutil.py
++++ b/gsutil.py
+@@ -81,7 +81,7 @@ THIRD_PARTY_LIBS = [
+     ('python-gflags', ''),
+     ('retry-decorator', ''),
+     ('six', ''),
+-    ('socksipy-branch', ''),
++    ('pysocks', ''),
+ ]
+ for libdir, subdir in THIRD_PARTY_LIBS:
+   if not os.path.isdir(os.path.join(THIRD_PARTY_DIR, libdir)):
+diff --git a/setup.py b/setup.py
+index d13b844..a5eab91 100755
+--- a/setup.py
++++ b/setup.py
+@@ -51,9 +51,7 @@ requires = [
+     'python-gflags>=3.1.2',
+     'retry_decorator>=1.0.0',
+     'six>=1.12.0',
+-    # Not using 1.02 because of:
+-    #   https://code.google.com/p/socksipy-branch/issues/detail?id=3
+-    'SocksiPy-branch==1.01',
++    'PySocks==1.0.0',
+ ]
+ 
+ dependency_links = [
+-- 
+2.20.1
+
