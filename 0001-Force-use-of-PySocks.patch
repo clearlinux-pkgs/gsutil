@@ -1,4 +1,4 @@
-From 0f24b9cbbaa5d23f757fa1518b6b4dd869428546 Mon Sep 17 00:00:00 2001
+From 50716223a339fc4501a3f9a29fd9a0909d6a9e9f Mon Sep 17 00:00:00 2001
 From: William Douglas <william.douglas@intel.com>
 Date: Fri, 8 Feb 2019 17:27:50 -0800
 Subject: [PATCH] Force use of PySocks
@@ -33,7 +33,7 @@ index 6a520ff..3361b93 100755
  for libdir, subdir in THIRD_PARTY_LIBS:
    if not os.path.isdir(os.path.join(THIRD_PARTY_DIR, libdir)):
 diff --git a/setup.py b/setup.py
-index d13b844..a5eab91 100755
+index d13b844..a7bbe78 100755
 --- a/setup.py
 +++ b/setup.py
 @@ -51,9 +51,7 @@ requires = [
@@ -43,7 +43,7 @@ index d13b844..a5eab91 100755
 -    # Not using 1.02 because of:
 -    #   https://code.google.com/p/socksipy-branch/issues/detail?id=3
 -    'SocksiPy-branch==1.01',
-+    'PySocks==1.0.0',
++    'PySocks>=1.0.0',
  ]
  
  dependency_links = [

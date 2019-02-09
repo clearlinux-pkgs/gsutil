@@ -4,7 +4,7 @@
 #
 Name     : gsutil
 Version  : 4.36
-Release  : 36
+Release  : 37
 URL      : https://files.pythonhosted.org/packages/a6/d9/3d8330b1a2ec04e1f73094e05131150825b581a5a2fa6d91f5f21741b4c0/gsutil-4.36.tar.gz
 Source0  : https://files.pythonhosted.org/packages/a6/d9/3d8330b1a2ec04e1f73094e05131150825b581a5a2fa6d91f5f21741b4c0/gsutil-4.36.tar.gz
 Summary  : A command line tool for interacting with cloud storage services.
@@ -86,7 +86,7 @@ export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C
-export SOURCE_DATE_EPOCH=1549684964
+export SOURCE_DATE_EPOCH=1549687599
 export MAKEFLAGS=%{?_smp_mflags}
 python3 setup.py build
 
