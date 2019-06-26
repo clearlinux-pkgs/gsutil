@@ -4,7 +4,7 @@
 #
 Name     : gsutil
 Version  : 4.37
-Release  : 39
+Release  : 40
 URL      : https://files.pythonhosted.org/packages/c9/86/b2eef9a5e677ec7f5e512bb0de6278cb041b87b266942900c3c67137d307/gsutil-4.37.tar.gz
 Source0  : https://files.pythonhosted.org/packages/c9/86/b2eef9a5e677ec7f5e512bb0de6278cb041b87b266942900c3c67137d307/gsutil-4.37.tar.gz
 Summary  : A command line tool for interacting with cloud storage services.
@@ -30,20 +30,27 @@ Requires: python-gflags
 Requires: retry_decorator
 Requires: six
 BuildRequires : PySocks
+BuildRequires : argcomplete
+BuildRequires : boto
 BuildRequires : buildreq-distutils3
 BuildRequires : crcmod
+BuildRequires : fasteners
 BuildRequires : gcs-oauth2-boto-plugin
 BuildRequires : google-apitools
+BuildRequires : google-reauth
+BuildRequires : httplib2
+BuildRequires : monotonic
+BuildRequires : oauth2client
+BuildRequires : pyOpenSSL
 BuildRequires : python-gflags
 BuildRequires : retry_decorator
+BuildRequires : six
 Patch1: 0001-Force-use-of-PySocks.patch
+Patch2: 0002-Remove-versioned-dependency-on-python-mock.patch
 
 %description
-This directory contains library code used by gsutil. Users are cautioned not
-to write programs that call the internal interfaces defined in here; these
-interfaces were defined only for use by gsutil, and are subject to change
-without notice. Moreover, Google supports this library only when used by
-gsutil, not when the library interfaces are called directly by other programs.
+gsutil is a Python application that lets you access Google Cloud Storage from
+        the command line. You can use gsutil to do a wide range of bucket and object
 
 %package bin
 Summary: bin components for the gsutil package.
@@ -83,17 +90,24 @@ python3 components for the gsutil package.
 %prep
 %setup -q -n gsutil-4.37
 %patch1 -p1
+%patch2 -p1
 
 %build
 export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C
-export SOURCE_DATE_EPOCH=1551229525
+export SOURCE_DATE_EPOCH=1561571308
+export GCC_IGNORE_WERROR=1
+export CFLAGS="$CFLAGS -fno-lto "
+export FCFLAGS="$CFLAGS -fno-lto "
+export FFLAGS="$CFLAGS -fno-lto "
+export CXXFLAGS="$CXXFLAGS -fno-lto "
 export MAKEFLAGS=%{?_smp_mflags}
 python3 setup.py build
 
 %install
+export MAKEFLAGS=%{?_smp_mflags}
 rm -rf %{buildroot}
 mkdir -p %{buildroot}/usr/share/package-licenses/gsutil
 cp LICENSE %{buildroot}/usr/share/package-licenses/gsutil/LICENSE

@@ -1,1 +1,2 @@
 0001-Force-use-of-PySocks.patch
+0002-Remove-versioned-dependency-on-python-mock.patch

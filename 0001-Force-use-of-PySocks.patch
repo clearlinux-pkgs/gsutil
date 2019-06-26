@@ -1,4 +1,4 @@
-From 50716223a339fc4501a3f9a29fd9a0909d6a9e9f Mon Sep 17 00:00:00 2001
+From 0000000000000000000000000000000000000000 Mon Sep 17 00:00:00 2001
 From: William Douglas <william.douglas@intel.com>
 Date: Fri, 8 Feb 2019 17:27:50 -0800
 Subject: [PATCH] Force use of PySocks
@@ -47,6 +47,3 @@ index d13b844..a7bbe78 100755
  ]
  
  dependency_links = [
--- 
-2.20.1
-
