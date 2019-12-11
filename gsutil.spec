@@ -4,7 +4,7 @@
 #
 Name     : gsutil
 Version  : 4.37
-Release  : 41
+Release  : 42
 URL      : https://files.pythonhosted.org/packages/c9/86/b2eef9a5e677ec7f5e512bb0de6278cb041b87b266942900c3c67137d307/gsutil-4.37.tar.gz
 Source0  : https://files.pythonhosted.org/packages/c9/86/b2eef9a5e677ec7f5e512bb0de6278cb041b87b266942900c3c67137d307/gsutil-4.37.tar.gz
 Summary  : A command line tool for interacting with cloud storage services.
@@ -89,6 +89,7 @@ python3 components for the gsutil package.
 
 %prep
 %setup -q -n gsutil-4.37
+cd %{_builddir}/gsutil-4.37
 %patch1 -p1
 %patch2 -p1
 
@@ -96,8 +97,8 @@ python3 components for the gsutil package.
 export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
-export LANG=C
-export SOURCE_DATE_EPOCH=1561571308
+export LANG=C.UTF-8
+export SOURCE_DATE_EPOCH=1576090863
 export GCC_IGNORE_WERROR=1
 export CFLAGS="$CFLAGS -fno-lto "
 export FCFLAGS="$CFLAGS -fno-lto "
@@ -110,11 +111,15 @@ python3 setup.py build
 export MAKEFLAGS=%{?_smp_mflags}
 rm -rf %{buildroot}
 mkdir -p %{buildroot}/usr/share/package-licenses/gsutil
-cp LICENSE %{buildroot}/usr/share/package-licenses/gsutil/LICENSE
+cp %{_builddir}/gsutil-4.37/LICENSE %{buildroot}/usr/share/package-licenses/gsutil/2b8b815229aa8a61e483fb4ba0588b8b6c491890
 python3 -tt setup.py build  install --root=%{buildroot}
 echo ----[ mark ]----
 cat %{buildroot}/usr/lib/python3*/site-packages/*/requires.txt || :
 echo ----[ mark ]----
+## install_append content
+sitedir=$(python -c "import sys; print(sys.path[-1])")
+rm -rfv %{buildroot}/${sitedir}/test
+## install_append end
 
 %files
 %defattr(-,root,root,-)
@@ -125,13 +130,11 @@ echo ----[ mark ]----
 
 %files license
 %defattr(0644,root,root,0755)
-/usr/share/package-licenses/gsutil/LICENSE
+/usr/share/package-licenses/gsutil/2b8b815229aa8a61e483fb4ba0588b8b6c491890
 
 %files python
 %defattr(-,root,root,-)
 
 %files python3
 %defattr(-,root,root,-)
-%exclude /usr/lib/python3.7/site-packages/test/__init__.py
-%exclude /usr/lib/python3.7/site-packages/test/__pycache__/__init__.cpython-37.pyc
 /usr/lib/python3*/*
