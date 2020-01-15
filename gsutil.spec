@@ -4,7 +4,7 @@
 #
 Name     : gsutil
 Version  : 4.37
-Release  : 42
+Release  : 43
 URL      : https://files.pythonhosted.org/packages/c9/86/b2eef9a5e677ec7f5e512bb0de6278cb041b87b266942900c3c67137d307/gsutil-4.37.tar.gz
 Source0  : https://files.pythonhosted.org/packages/c9/86/b2eef9a5e677ec7f5e512bb0de6278cb041b87b266942900c3c67137d307/gsutil-4.37.tar.gz
 Summary  : A command line tool for interacting with cloud storage services.
@@ -27,6 +27,7 @@ Requires: monotonic
 Requires: oauth2client
 Requires: pyOpenSSL
 Requires: python-gflags
+Requires: python-mock
 Requires: retry_decorator
 Requires: six
 BuildRequires : PySocks
@@ -43,6 +44,7 @@ BuildRequires : monotonic
 BuildRequires : oauth2client
 BuildRequires : pyOpenSSL
 BuildRequires : python-gflags
+BuildRequires : python-mock
 BuildRequires : retry_decorator
 BuildRequires : six
 Patch1: 0001-Force-use-of-PySocks.patch
@@ -98,7 +100,7 @@ export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C.UTF-8
-export SOURCE_DATE_EPOCH=1576090863
+export SOURCE_DATE_EPOCH=1579110271
 export GCC_IGNORE_WERROR=1
 export CFLAGS="$CFLAGS -fno-lto "
 export FCFLAGS="$CFLAGS -fno-lto "
