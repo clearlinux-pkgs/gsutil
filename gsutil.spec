@@ -4,7 +4,7 @@
 #
 Name     : gsutil
 Version  : 4.37
-Release  : 43
+Release  : 44
 URL      : https://files.pythonhosted.org/packages/c9/86/b2eef9a5e677ec7f5e512bb0de6278cb041b87b266942900c3c67137d307/gsutil-4.37.tar.gz
 Source0  : https://files.pythonhosted.org/packages/c9/86/b2eef9a5e677ec7f5e512bb0de6278cb041b87b266942900c3c67137d307/gsutil-4.37.tar.gz
 Summary  : A command line tool for interacting with cloud storage services.
@@ -84,6 +84,21 @@ python components for the gsutil package.
 Summary: python3 components for the gsutil package.
 Group: Default
 Requires: python3-core
+Provides: pypi(gsutil)
+Requires: pypi(argcomplete)
+Requires: pypi(crcmod)
+Requires: pypi(fasteners)
+Requires: pypi(gcs_oauth2_boto_plugin)
+Requires: pypi(google_apitools)
+Requires: pypi(google_reauth)
+Requires: pypi(httplib2)
+Requires: pypi(mock)
+Requires: pypi(monotonic)
+Requires: pypi(oauth2client)
+Requires: pypi(pyopenssl)
+Requires: pypi(retry_decorator)
+Requires: pypi(six)
+Requires: pypi(socksipy_branch)
 
 %description python3
 python3 components for the gsutil package.
@@ -100,11 +115,11 @@ export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C.UTF-8
-export SOURCE_DATE_EPOCH=1579110271
+export SOURCE_DATE_EPOCH=1587770675
 export GCC_IGNORE_WERROR=1
 export CFLAGS="$CFLAGS -fno-lto "
-export FCFLAGS="$CFLAGS -fno-lto "
-export FFLAGS="$CFLAGS -fno-lto "
+export FCFLAGS="$FFLAGS -fno-lto "
+export FFLAGS="$FFLAGS -fno-lto "
 export CXXFLAGS="$CXXFLAGS -fno-lto "
 export MAKEFLAGS=%{?_smp_mflags}
 python3 setup.py build
