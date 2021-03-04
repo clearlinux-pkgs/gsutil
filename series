@@ -1,2 +1,2 @@
-0001-Force-use-of-PySocks.patch
-0002-Remove-versioned-dependency-on-python-mock.patch
+0001-Remove-versioned-dependency-on-python-mock.patch
+0002-Fix-TabError-exception-from-bytecompile-step.patch
