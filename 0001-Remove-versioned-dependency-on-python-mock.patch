@@ -10,11 +10,11 @@ Signed-off-by: Patrick McCarty <patrick.mccarty@intel.com>
  2 files changed, 2 insertions(+), 2 deletions(-)
 
 diff --git a/gsutil.egg-info/requires.txt b/gsutil.egg-info/requires.txt
-index f642424..1a93b2c 100644
+index 2677fd6..c563b52 100644
 --- a/gsutil.egg-info/requires.txt
 +++ b/gsutil.egg-info/requires.txt
 @@ -5,7 +5,7 @@ gcs-oauth2-boto-plugin>=2.7
- google-apitools>=0.5.30
+ google-apitools>=0.5.32
  httplib2>=0.18
  google-reauth>=0.1.0
 -mock==2.0.0
@@ -23,7 +23,7 @@ index f642424..1a93b2c 100644
  pyOpenSSL>=0.13
  retry_decorator>=1.0.0
 diff --git a/setup.py b/setup.py
-index c901371..b2f3a4c 100755
+index fa222f2..8845377 100755
 --- a/setup.py
 +++ b/setup.py
 @@ -44,7 +44,7 @@ requires = [
