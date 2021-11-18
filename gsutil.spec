@@ -4,7 +4,7 @@
 #
 Name     : gsutil
 Version  : 5.5
-Release  : 70
+Release  : 71
 URL      : https://files.pythonhosted.org/packages/a4/ef/434449c62f5d8b36a34bc363e9003c07b138bec8446f1caf344bcd41c28b/gsutil-5.5.tar.gz
 Source0  : https://files.pythonhosted.org/packages/a4/ef/434449c62f5d8b36a34bc363e9003c07b138bec8446f1caf344bcd41c28b/gsutil-5.5.tar.gz
 Summary  : A command line tool for interacting with cloud storage services.
@@ -42,7 +42,6 @@ BuildRequires : pypi(rsa)
 BuildRequires : pypi(simplejson)
 BuildRequires : pypi(six)
 BuildRequires : pypi(webob)
-BuildRequires : python-gflags
 
 %description
 This directory contains library code used by gsutil. Users are cautioned not
@@ -84,29 +83,18 @@ Requires: python3-core
 Provides: pypi(gsutil)
 Requires: pypi(argcomplete)
 Requires: pypi(crcmod)
-Requires: pypi(django)
 Requires: pypi(fasteners)
-Requires: pypi(flask)
 Requires: pypi(gcs_oauth2_boto_plugin)
 Requires: pypi(google_apitools)
 Requires: pypi(google_reauth)
 Requires: pypi(httplib2)
-Requires: pypi(httpretty)
-Requires: pypi(keyring)
-Requires: pypi(mock)
 Requires: pypi(monotonic)
-Requires: pypi(paramiko)
 Requires: pypi(pyasn1)
 Requires: pypi(pyasn1_modules)
 Requires: pypi(pyopenssl)
-Requires: pypi(python_gflags)
-Requires: pypi(pyyaml)
-Requires: pypi(requests)
 Requires: pypi(retry_decorator)
 Requires: pypi(rsa)
-Requires: pypi(simplejson)
 Requires: pypi(six)
-Requires: pypi(webob)
 
 %description python3
 python3 components for the gsutil package.
@@ -121,7 +109,7 @@ export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C.UTF-8
-export SOURCE_DATE_EPOCH=1637266030
+export SOURCE_DATE_EPOCH=1637266138
 export GCC_IGNORE_WERROR=1
 export CFLAGS="$CFLAGS -fno-lto "
 export FCFLAGS="$FFLAGS -fno-lto "
