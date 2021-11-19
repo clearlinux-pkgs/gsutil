@@ -4,7 +4,7 @@
 #
 Name     : gsutil
 Version  : 5.5
-Release  : 71
+Release  : 72
 URL      : https://files.pythonhosted.org/packages/a4/ef/434449c62f5d8b36a34bc363e9003c07b138bec8446f1caf344bcd41c28b/gsutil-5.5.tar.gz
 Source0  : https://files.pythonhosted.org/packages/a4/ef/434449c62f5d8b36a34bc363e9003c07b138bec8446f1caf344bcd41c28b/gsutil-5.5.tar.gz
 Summary  : A command line tool for interacting with cloud storage services.
@@ -109,7 +109,7 @@ export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C.UTF-8
-export SOURCE_DATE_EPOCH=1637266138
+export SOURCE_DATE_EPOCH=1637355031
 export GCC_IGNORE_WERROR=1
 export CFLAGS="$CFLAGS -fno-lto "
 export FCFLAGS="$FFLAGS -fno-lto "
