@@ -4,7 +4,7 @@
 #
 Name     : gsutil
 Version  : 5.5
-Release  : 72
+Release  : 73
 URL      : https://files.pythonhosted.org/packages/a4/ef/434449c62f5d8b36a34bc363e9003c07b138bec8446f1caf344bcd41c28b/gsutil-5.5.tar.gz
 Source0  : https://files.pythonhosted.org/packages/a4/ef/434449c62f5d8b36a34bc363e9003c07b138bec8446f1caf344bcd41c28b/gsutil-5.5.tar.gz
 Summary  : A command line tool for interacting with cloud storage services.
